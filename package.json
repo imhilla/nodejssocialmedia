@@ -1,0 +1,22 @@
+{
+  "name": "nodejssocialmedia",
+  "version": "1.0.0",
+  "description": "Basic social media app built in dodejs and tested with Mocha",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imhilla/nodejssocialmedia.git"
+  },
+  "author": "Hillary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imhilla/nodejssocialmedia/issues"
+  },
+  "homepage": "https://github.com/imhilla/nodejssocialmedia#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
