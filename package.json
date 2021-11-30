@@ -2,7 +2,7 @@
   "name": "nodejssocialmedia",
   "version": "1.0.0",
   "description": "Basic social media app built in dodejs and tested with Mocha",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
