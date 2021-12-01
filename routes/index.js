@@ -1,4 +1,6 @@
+// require express to use router
 var express = require('express');
+// create router
 var router = express.Router();
 
 /* GET home page. */
