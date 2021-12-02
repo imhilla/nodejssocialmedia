@@ -14,12 +14,11 @@ app.get("/api/posts", (req, res) => {
 });
 
 app.post("/api/post", (req, res) => {
-  console.log(req.body);
-  postContoller.createPost(req.body.task).then((data) => res.json(data));
+  postContoller.createPost(req.body).then((data) => res.json(data));
 });
 
 app.put("/api/post", (req, res) => {
-  postContoller.updatePost(req.body.task).then((data) => res.json(data));
+  postContoller.updatePost(req.body).then((data) => res.json(data));
 });
 
 app.delete("/api/post/:id", (req, res) => {
