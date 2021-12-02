@@ -8,12 +8,17 @@ const connect = () => {
       process.env.MONGO_CONNECTION_STRING
   );
 
-  mongoose.connect(url, {
-    useNewUrlParser: true,
-    useFindAndModify: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  });
+  // mongoose.connect(url, {
+  //   useNewUrlParser: true,
+  //   // useFindAndModify: true,
+  //   useUnifiedTopology: true,
+  //   // useCreateIndex: true,
+  // });
+
+  mongoose
+    .connect(url, {})
+    .then(() => console.log("Database Connected"))
+    .catch((err) => console.log(err));
 
   mongoose.connection.once("open", async () => {
     logger.info("Connected to database");

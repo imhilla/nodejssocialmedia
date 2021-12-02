@@ -4,8 +4,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require("dotenv").config();
-
-const postsRouter = require("./routes/posts");
+const postController = require("./controller/post.controller");
+// const postsRouter = require("./routes/posts");
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -15,11 +15,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api", postsRouter);
+// app.use("/api", postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
+});
+
+app.get("/api/posts", (req, res) => {
+  postController.getTasks().then((data) => res.json(data));
 });
 
 // error handler
