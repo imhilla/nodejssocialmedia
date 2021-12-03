@@ -26,7 +26,7 @@ app.delete("/api/post/:id", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send(`<h1>API Works !!!</h1>`);
+  res.send(`!`);
 });
 
 app.listen(port, () => {
