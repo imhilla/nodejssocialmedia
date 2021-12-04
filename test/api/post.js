@@ -42,7 +42,7 @@ describe("POST /api/posts", () => {
     request(app)
       .get("/")
       .then((res) => {
-        expect(res.text).to.equal('!');
+        expect(res.text).to.equal("!");
         done();
       });
   });
