@@ -5,7 +5,7 @@ require("dotenv").config();
 const postContoller = require("./controller/post.controller");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 5000;
 
 app.use(bodyParser.json());
 
@@ -32,4 +32,5 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on the port  ${port}`);
 });
+
 module.exports = app
