@@ -1,4 +1,4 @@
-const { connect, disconnect } = require("../config/db.config");
+const { connect } = require("../config/db.config");
 const { Post } = require("../model/post.model");
 const logger = require("../logger/api.logger");
 

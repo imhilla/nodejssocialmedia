@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const logger = require("../logger/api.logger");
-const mongod = MongoMemoryServer.create();
 
 const connect = async () => {
+  const mongod = await MongoMemoryServer.create();
   const url = process.env.MONGO_CONNECTION_STRING;
   logger.info(
     "process.env.MONGO_CONNECTION_STRING :: " +
@@ -43,6 +43,7 @@ const disconnect = async () => {
   }
 }
 const clearDatabase = async () => {
+  const mongod = await MongoMemoryServer.create();
   const collections = mongoose.connection.collections;
 
   for (const key in collections) {
