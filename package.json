@@ -8,6 +8,7 @@
     "test": "mocha --recursive --exit --timeout 100000"
   },
   "dependencies": {
+    "@appland/appmap-agent-js": "^8.7.0",
     "assert": "^2.0.0",
     "chai": "^4.3.4",
     "cookie-parser": "~1.4.4",

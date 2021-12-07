@@ -3,19 +3,19 @@ class PostService {
   constructor() {}
 
   async getPosts() {
-    return await postRepository.getPosts();
+    return postRepository.getPosts();
   }
 
   async createPost(post) {
-    return await postRepository.createPost(post);
+    return postRepository.createPost(post);
   }
 
   async updatePost(post) {
-    return await postRepository.updatePost(post);
+    return postRepository.updatePost(post);
   }
 
   async deletePost(postId) {
-    return await postRepository.deletePost(postId);
+    return postRepository.deletePost(postId);
   }
 }
 module.exports = new PostService();

@@ -1,0 +1,10 @@
+name: nodejssocialmedia
+packages:
+  - path: config
+  - path: controller
+  - path: logger
+  - path: model
+  - path: repository
+  - path: routes
+  - path: service
+  - path: test/api

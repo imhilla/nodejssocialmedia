@@ -8,14 +8,14 @@ class PostRepository {
   }
 
   async getPosts() {
-    const posts = await Post.find({});
+    const posts = Post.find({});
     return posts;
   }
 
   async createPost(post) {
     let data = {};
     try {
-      data = await Post.create(post);
+      data = Post.create(post);
     } catch (err) {
       logger.error("Error::" + err);
     }
@@ -25,7 +25,7 @@ class PostRepository {
   async updatePost(post) {
     let data = {};
     try {
-      data = await Post.updateOne(post);
+      data = Post.updateOne(post);
     } catch (err) {
       logger.error("Error::" + err);
     }
@@ -34,7 +34,7 @@ class PostRepository {
   async deletePost(postId) {
     let data = {};
     try {
-      data = await Post.deleteOne({ _id: postId });
+      data = Post.deleteOne({ _id: postId });
     } catch (err) {
       logger.error("Error::" + err);
     }

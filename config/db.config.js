@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const logger = require("../logger/api.logger");
+const mongod = MongoMemoryServer.create();
 
 const connect = async () => {
   const url = process.env.MONGO_CONNECTION_STRING;
@@ -9,28 +10,27 @@ const connect = async () => {
     process.env.MONGO_CONNECTION_STRING
   );
   if (process.env.NODE_ENV === "test") {
-    const mongod = await MongoMemoryServer.create();
     const uri = mongod.getUri();
-    await mongoose.createConnection(uri)
+    mongoose.createConnection(uri)
   }
-  // else {
-  //   mongoose
-  //     .connect(url, {})
-  //     .then(() => console.log("Database Connected"))
-  //     .catch((err) => console.log(err));
+  else {
+    mongoose
+      .connect(url)
+      .then(() => console.log("Database Connected"))
+      .catch((err) => console.log(err));
 
-  //   mongoose.connection.once("open", async () => {
-  //     logger.info("Connected to database");
-  //   });
+    mongoose.connection.once("open", async () => {
+      logger.info("Connected to database");
+    });
 
-  //   mongoose.connection.on("error", (err) => {
-  //     logger.error("Error connecting to database", err);
-  //   });
-  // }
+    mongoose.connection.on("error", (err) => {
+      logger.error("Error connecting to database", err);
+    });
+  }
 
 };
 
-function disconnect() {
+const disconnect = async () => {
   if (process.env.NODE_ENV === "test") {
     mongoose.connection.dropDatabase();
     mongoose.connection.close();
@@ -47,7 +47,7 @@ const clearDatabase = async () => {
 
   for (const key in collections) {
     const collection = collections[key];
-    await collection.deleteMany();
+    collection.deleteMany();
   }
 }
 module.exports = {
