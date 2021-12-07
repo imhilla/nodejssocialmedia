@@ -39,11 +39,17 @@ describe("POST /api/posts", () => {
 
   it("OK, get existing posts", (done) => {
     request(app)
-      .get("/api/posts")
+      .post("/api/post")
+      .send({ title: "Hello it works", body: "Testing body" })
       .then((res) => {
-        const body = res.body;
-        let bodylength = body.length
-        expect(bodylength).to.be.above(1);
+        request(app)
+          .get("/api/posts")
+          .then((res) => {
+            const body = res.body;
+            let bodylength = body.length
+            expect(bodylength).to.be.above(1);
+            done();
+          });
         done();
       });
   });
